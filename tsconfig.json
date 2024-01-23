@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "strict": false,
+        "target": "ES2016",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "outDir": "./dist"
+    },
+    "include": [
+        "./src/**/*.ts"
+    ]
+}

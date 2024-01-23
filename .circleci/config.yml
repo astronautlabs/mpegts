@@ -1,0 +1,52 @@
+version: 2.1
+commands:
+  run_tests:
+    description: "Run the tests"
+    parameters:
+      version:
+        type: string
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-<< parameters.version >>-{{ checksum "package.json" }}
+          - v1-dependencies-<< parameters.version >>-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-<< parameters.version >>-{{ checksum "package.json" }}
+          
+      - run: npm test
+jobs:
+  linux-node-20:
+    docker:
+      - image: cimg/node:20.10
+    steps:
+      - run_tests:
+          version: "20"
+  linux-node-18:
+    docker:
+      - image: cimg/node:18.18
+    steps:
+      - run_tests:
+          version: "18"
+  linux-node-16:
+    docker:
+      - image: cimg/node:16.20
+    steps:
+      - run_tests:
+          version: "16"
+  linux-node-14:
+    docker:
+      - image: cimg/node:14.21
+    steps:
+      - run_tests:
+          version: "14"
+workflows:
+  build:
+    jobs:
+      - linux-node-20
+      - linux-node-18
+      - linux-node-16
+      - linux-node-14

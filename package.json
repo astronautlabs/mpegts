@@ -1,0 +1,35 @@
+{
+  "name": "@astronautlabs/mpegts",
+  "version": "0.0.1",
+  "description": "Comprehensive Typescript implementation of MPEG transport streams",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": false,
+  "scripts": {
+    "build": "tsc -b",
+    "test": "echo 'No tests to run'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astronautlabs/mpegts.git"
+  },
+  "keywords": [
+    "MPEG-TS",
+    "transport stream",
+    "ts",
+    "broadcast",
+    "iso13818-1"
+  ],
+  "author": "Astronaut Labs, LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/astronautlabs/mpegts/issues"
+  },
+  "homepage": "https://github.com/astronautlabs/mpegts#readme",
+  "dependencies": {
+    "@astronautlabs/bitstream": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5"
+  }
+}
